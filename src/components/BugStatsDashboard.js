@@ -97,7 +97,7 @@ export default function BugStatsDashboard() {
   return (
     <div className="dashboard">
       <div className="header-row">
-        <h1 className="heading">Bug Statistics</h1>
+        <h1 className="heading">Bug Pilot</h1>
         <div className="date-filter">
           <div>
             <label>Start Date</label>
