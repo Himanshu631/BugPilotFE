@@ -105,7 +105,7 @@ export default function BugStatsDashboard() {
           </div>
           <div>
             <label>End Date</label>
-            <input type="date" defaultValue="2025-03-28" />
+            <input type="date" defaultValue="2025-09-28" />
           </div>
         </div>
       </div>
