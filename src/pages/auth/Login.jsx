@@ -9,13 +9,13 @@ export default function Login() {
   const [form, setForm] = useState({ username: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [toastMessage, setToastMessage] = useState('');
+  const [toast, setToast] = useState({ message: '', type: '' });
   const navigate = useNavigate();
   const { setAuth } = useContext(AuthContext);
 
   const handleLogin = async () => {
     if (!form.username || !form.password) {
-      setToastMessage('Please fill in all fields');
+      setToast({ message: 'Please fill in all fields', type: 'error' });
       return;
     }
 
@@ -24,7 +24,7 @@ export default function Login() {
       const res = await axios.post('http://localhost:8080/api/v1/authenticate', form);
 
       if (!res.data.success) {
-        setToastMessage(res.data.message || 'Login failed');
+        setToast({ message: res.data.message || 'Login failed', type: 'error' });
         return;
       }
 
@@ -34,10 +34,18 @@ export default function Login() {
       setAuth({ token, user: decoded });
       localStorage.setItem('token', token);
 
-      navigate(decoded.roles.includes('ADMIN') ? '/' : '/dashboard');
+      setToast({ message: 'Login successful', type: 'success' });
+
+      // delay navigation so toast can be seen
+      setTimeout(() => {
+        navigate(decoded.roles.includes('ADMIN') ? '/dashboard' : '/dashboard');
+      }, 1000);
     } catch (err) {
       console.error('Login error:', err);
-      setToastMessage(err.response?.data?.message || 'Login failed');
+      setToast({
+        message: err.response?.data?.message || 'Login failed',
+        type: 'error',
+      });
     } finally {
       setLoading(false);
     }
@@ -45,17 +53,17 @@ export default function Login() {
 
   return (
     <div className="login-container">
-      {toastMessage && (
+      {toast.message && (
         <Toast
-          message={toastMessage}
-          type="error"
-          onClose={() => setToastMessage('')}
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast({ message: '', type: '' })}
         />
       )}
 
       <div className="login-card">
         <div className="login-header">
-          <h1>CRM Login</h1>
+          <h1>BugPilot Login</h1>
           <p>Welcome back! Please login to your account.</p>
         </div>
 
@@ -63,7 +71,8 @@ export default function Login() {
           type="text"
           placeholder="Username"
           className="login-input"
-          onChange={e => setForm({ ...form, username: e.target.value })}
+          value={form.username}
+          onChange={(e) => setForm({ ...form, username: e.target.value })}
         />
 
         <div className="login-password">
@@ -71,7 +80,8 @@ export default function Login() {
             type={showPassword ? 'text' : 'password'}
             placeholder="Password"
             className="login-input"
-            onChange={e => setForm({ ...form, password: e.target.value })}
+            value={form.password}
+            onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
           <span
             className="toggle-password"
@@ -97,7 +107,7 @@ export default function Login() {
         </button>
 
         <p className="login-footer">
-          © {new Date().getFullYear()} YourCompany. All rights reserved.
+          © {new Date().getFullYear()} BugPilot Inc.
         </p>
       </div>
     </div>
