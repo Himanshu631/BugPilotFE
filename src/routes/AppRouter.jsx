@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from '../pages/auth/Login';
 import OnboardClient from '../pages/client/OnboardClient';
 import AdminDashboard from '../pages/dashboard/AdminDashboard';
-import UserDashboard from '../pages/dashboard/UserDashboard';
+import BugDashboard from '../components/BugStatsDashboard';
 
 export default function AppRouter() {
   return (
@@ -11,7 +11,7 @@ export default function AppRouter() {
         <Route path="/login" element={<Login />} />
         <Route path="/onboard" element={<OnboardClient />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/dashboard" element={<UserDashboard />} />
+        <Route path="/" element={<BugDashboard />} />
       </Routes>
     </Router>
   );
