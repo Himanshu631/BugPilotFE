@@ -71,12 +71,12 @@ export default function BugStatsDashboard() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // const token = localStorage.getItem("token"); // or sessionStorage, or context
+    const token = localStorage.getItem("token"); // or sessionStorage, or context
   
     axios
-      .get("http://localhost:8080/api/v1/stats/cummulative", {
+      .get('http://localhost:8080/api/v1/stats/cummulative', {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdGV2ZS5qb2JzQGFwcGxlLmNvbSIsInJvbGVzIjpbIkNMSUVOVF9BRE1JTiJdLCJwZXJtaXNzaW9ucyI6WyJVU0VSX01BTkFHRSIsIlJPTEVfTUFOQUdFIiwiUEVSTUlTU0lPTl9NQU5BR0UiXSwiaXNzIjoiVGVjaGlvIEJ1Z1BpbG90IiwiaWF0IjoxNzQ5NDA3Nzg3LCJleHAiOjE3NDk0MTEzODd9.sx5XD1SDFq5b3F78p6saUOq4KJ6dQmkqStqiZj4NYxE`
+          Authorization: `Bearer ${token}`
         }
       })
       .then((response) => {
