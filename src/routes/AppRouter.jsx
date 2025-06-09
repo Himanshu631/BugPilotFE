@@ -4,6 +4,8 @@ import OnboardClient from '../pages/client/OnboardClient';
 import AdminDashboard from '../pages/dashboard/AdminDashboard';
 import BugStatsDashboard from '../components/BugStatsDashboard';
 import PrivateRoute from '../components/PrivateRoute';
+import MainLayout from '../layouts/MainLayout';
+
 
 export default function AppRouter() {
   return (
@@ -11,16 +13,9 @@ export default function AppRouter() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/onboard" element={<OnboardClient />} />
-
-        <Route path="/admin/dashboard" element={
-          <PrivateRoute><AdminDashboard /></PrivateRoute>
-        } />
-        
-        <Route path="/dashboard" element={
-          <PrivateRoute><BugStatsDashboard /></PrivateRoute>
-        } />
-
-        <Route path="*" element={<Navigate to="/dashboard" />} />
+        <Route path="/admin/dashboard" element={<MainLayout><AdminDashboard /></MainLayout>} />
+        <Route path="/dashboard" element={<MainLayout><BugStatsDashboard /></MainLayout>} />
+        <Route path="/" element={<Navigate to="/dashboard" />} />
       </Routes>
     </Router>
   );
