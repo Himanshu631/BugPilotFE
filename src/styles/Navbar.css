@@ -30,7 +30,7 @@
   }
   
   .navbar-links a:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
   
   .navbar-right {
@@ -44,9 +44,47 @@
     color: white;
     border: none;
     border-radius: 4px;
+    margin-right: 10px;
+    font-size: 14px;
     cursor: pointer;
   }
+
   .logout-button:hover {
     background: #c9302c;
+  }
+  
+  .sub-navbar {
+    display: flex;
+    align-items: center;
+    background-color: #2a2a3c;
+    padding: 8px 20px;
+    gap: 25px;
+    border-bottom: 2px solid #3b3b4d;
+  }
+  
+  .sub-navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .sub-navbar a:hover {
+    text-decoration: none;
+    color: #60a5fa;
+  }
+  
+  .profile-button {
+    padding: 8px 16px; /* Match logout-button padding */
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 14px; /* Match button font size */
+  }  
+  
+  .profile-button:hover {
+    background: #5a6268;
   }
   

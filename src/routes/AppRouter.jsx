@@ -12,10 +12,10 @@ export default function AppRouter() {
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/onboard" element={<OnboardClient />} />
+        <Route path="/onboard" element={<MainLayout><OnboardClient /></MainLayout>} />
         <Route path="/admin/dashboard" element={<MainLayout><AdminDashboard /></MainLayout>} />
         <Route path="/dashboard" element={<MainLayout><BugStatsDashboard /></MainLayout>} />
-        <Route path="/" element={<Navigate to="/dashboard" />} />
+        <Route path="/" element={<Navigate to="/login" />} />
       </Routes>
     </Router>
   );

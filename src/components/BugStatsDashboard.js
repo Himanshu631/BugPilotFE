@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/Dashboard.css";
+import endpoints from "../api/api"; 
 
 const categories = [
   {
@@ -74,11 +75,11 @@ export default function BugStatsDashboard() {
     const token = localStorage.getItem("token"); // or sessionStorage, or context
   
     axios
-      .get('http://localhost:8080/api/v1/stats/cummulative', {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
+    .get(endpoints.stats.cumulative, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
       .then((response) => {
         setStats(response.data);
         setLoading(false);
