@@ -60,18 +60,56 @@
     padding: 8px 20px;
     gap: 25px;
     border-bottom: 2px solid #3b3b4d;
+    flex-wrap: wrap; /* allow wrapping on smaller screens */
   }
   
   .sub-navbar a {
     color: white;
     text-decoration: none;
     font-weight: 500;
+    white-space: nowrap; /* prevents text from breaking awkwardly */
   }
   
   .sub-navbar a:hover {
     text-decoration: none;
     color: #60a5fa;
   }
+  
+  /* Hamburger styles */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .navbar-links,
+  .sub-navbar {
+    display: none;
+    flex-direction: column;
+    background-color: #2a2a3c;
+    width: 100%;
+    padding: 10px 20px;
+  }
+
+  .navbar-links.open,
+  .sub-navbar.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+  }
+}
   
   .profile-button {
     padding: 8px 16px; /* Match logout-button padding */
