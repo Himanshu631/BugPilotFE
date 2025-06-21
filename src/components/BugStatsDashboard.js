@@ -103,19 +103,19 @@ export default function BugStatsDashboard() {
           Avg. Resolution Time: <strong>{stats.avgResolutionTime} hrs</strong>
         </div>
         <div className="stat-card blue">
-          Total Bugs: <strong>{stats.totalBugs}</strong>
+          Total: <strong>{stats.totalBugs}</strong>
         </div>
         <div className="stat-card green">
-          Resolved Bugs: <strong>{stats.resolvedBugs}</strong>
+          Resolved: <strong>{stats.resolvedBugs}</strong>
         </div>
         <div className="stat-card red">
-          Open Bugs: <strong>{stats.openBugs}</strong>
+          Open: <strong>{stats.openBugs}</strong>
         </div>
         <div className="stat-card yellow">
-          Awaiting Reply Bugs: <strong>{stats.awaitingReplyBugs}</strong>
+          Awaiting Reply: <strong>{stats.awaitingReplyBugs}</strong>
         </div>
         <div className="stat-card orange">
-          In Progress Bugs: <strong>{stats.inProgressBugs}</strong>
+          In Progress: <strong>{stats.inProgressBugs}</strong>
         </div>
       </div>
 
