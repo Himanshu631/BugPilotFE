@@ -47,6 +47,7 @@ export default function Navbar() {
 
       {/* Sub Navbar */}
       <div className={`sub-navbar ${menuOpen ? 'open' : ''}`}>
+        <Link to="/dashboard">Dashboard</Link>
         <Link to="/projects">Projects</Link>
         <Link to="/modules">Modules</Link>
         <Link to="/tasks">Tasks</Link>

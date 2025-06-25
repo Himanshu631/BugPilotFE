@@ -4,6 +4,7 @@ import OnboardClient from '../pages/client/OnboardClient';
 import AdminDashboard from '../pages/dashboard/AdminDashboard';
 import ProjectsPage from '../pages/projects/ProjectsPage';
 import ModulesPage from '../pages/modules/ModulesPage';
+import TasksPage from '../pages/tasks/TasksPage';
 import BugStatsDashboard from '../components/BugStatsDashboard';
 import MainLayout from '../layouts/MainLayout';
 
@@ -16,6 +17,7 @@ export default function AppRouter() {
         <Route path="/projects" element={<MainLayout><ProjectsPage /></MainLayout>} />
         <Route path="/modules" element={<MainLayout><ModulesPage /></MainLayout>} />
         <Route path="/onboard" element={<MainLayout><OnboardClient /></MainLayout>} />
+        <Route path="/tasks" element={<MainLayout><TasksPage /></MainLayout>} />
         <Route path="/admin/dashboard" element={<MainLayout><AdminDashboard /></MainLayout>} />
         <Route path="/dashboard" element={<MainLayout><BugStatsDashboard /></MainLayout>} />
         <Route path="/" element={<Navigate to="/login" />} />
